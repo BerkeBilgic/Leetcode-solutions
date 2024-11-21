@@ -1,0 +1,21 @@
+strs=["a","abcdf","abcde"]
+def longestCommonPrefix(strs):
+        common_str=""
+        strs=sorted(strs) # it is alphabetically ordered
+        first=strs[0]
+        last=strs[-1]
+
+        if first=="":
+            return ""
+        else:
+
+            for i in range(0,len(first)):
+            
+                if first[i]==last[i]: #since this is alphabetically ordered, instead of checking each word, first and last enough as
+                    common_str+=first[i]
+                else:
+                    return common_str
+            return common_str    
+
+                
+print(longestCommonPrefix(strs))                
