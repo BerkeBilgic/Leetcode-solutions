@@ -1,0 +1,18 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        roman_chars={"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
+        result=0
+
+        s=s.replace("IV","IIII")
+        s=s.replace("XL","XXXX")
+        s=s.replace("CD","CCCC")
+        s=s.replace("IX","VIIII")
+        s=s.replace("XC","LXXXX")
+        s=s.replace("CM","DCCCC")
+        s=s.replace("IL","XXXXVIIII")
+        s=s.replace("VC","LXXXXV")
+        
+        for i in range(len(s)):
+            result+=roman_chars[s[i]]
+        return result        
+
