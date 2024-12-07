@@ -1,0 +1,7 @@
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        nums.sort()
+        for i in range(0,len(nums)):
+            if i!=nums[i]: #if arrays dont have to be start with 0,
+                return i   # smallest value can be substracted all elements on the list
+        return len(nums) # nums=[0,1]-> 2 is missing    
