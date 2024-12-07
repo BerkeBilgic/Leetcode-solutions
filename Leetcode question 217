@@ -1,4 +1,4 @@
-class Solution:
+class Solution: #this question can be solved by comparing the length of nums and set(nums) as sets dont let same values 
     def containsDuplicate(self, nums: List[int]) -> bool:
         nums=sorted(nums)
         for i in range(0,len(nums)-1):
