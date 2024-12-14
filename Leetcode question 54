@@ -1,0 +1,27 @@
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        result_list=list()
+
+        while matrix: #while matrix is not empty
+            result_list+=matrix.pop(0) #first row was added and deleted
+
+            if matrix and matrix[0]:
+                for row in matrix: # rightmost column
+                    result_list.append(row.pop()) #when inside of pop is empty, default is idx=-1
+            
+            if matrix:
+                result_list+=matrix.pop()[::-1] #last row was added in the reverse order
+
+            if matrix and matrix[0]:    
+                for row in matrix[::-1]:
+                    result_list.append(row.pop(0)) # leftmost column was added in reverse order
+        return result_list
+
+
+
+
+
+        
+
+                
+               
