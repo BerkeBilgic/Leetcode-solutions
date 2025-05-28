@@ -1,0 +1,42 @@
+"""
+class Solution:
+         
+            
+    def countPrimes(self, n: int) -> int:
+
+        def isprime(self,n:int)->bool:
+         
+            for i in range(2,int( n**(1/2) )+1 ):
+                if n%i==0:
+                    return False
+            return True 
+
+
+        if n<=2:
+            return 0
+        
+        else:
+            counter=1 #2
+            for i in range(3,n,2):
+                if isprime(self,i):
+                    counter+=1
+        return counter            
+      since this solution's time complexity is O(n*sqrt(n)) this is not gonna work, instead we need sieve of Eratosthenes whose time complexity is O(n*log(logn))
+        """
+
+class Solution:
+         
+    def countPrimes(self,n:int)->int:
+        if n<=2:
+            return 0
+        is_prime=[1]*n
+        is_prime[0]=is_prime[1]=0  # 0 and 1 
+
+        for i in range(2, int(n ** 0.5) + 1):
+            if is_prime[i]:
+                # pointing out
+                for j in range(i*i,n,i): #assume i is 7, we are deleting all 7 divisors. we dont need to look at nums smaller than i*i(49) because they are already marked when i was 2,3,5  
+                    is_prime[j]=0
+
+        return sum(is_prime)
+        
